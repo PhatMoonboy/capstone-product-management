@@ -3,58 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cửa hàng điện thoại</title>
-    <script>
-      // Redirect to home page
-      window.location.href = './home.html';
-    </script>
-  </head>
-  <body>
-    <div style="text-align: center; padding: 50px;">
-      <h2>Đang chuyển hướng...</h2>
-      <p>Nếu không tự động chuyển, <a href="./home.html">nhấn vào đây</a></p>
-    </div>
-  </body>
-</html>
-    <link rel="stylesheet" href="./asset/css/index.css" />
+    <title>Cửa hàng điện thoại - Mua sắm</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../asset/css/index.css" />
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="../../home.html">
           <i class="fas fa-mobile-alt me-2"></i>
           PhoneStore
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Trang chủ</a>
+              <a class="nav-link" href="../../home.html">
+                <i class="fas fa-home me-1"></i>
+                Trang chủ
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./admin/view/admin.html">Quản trị</a>
+              <a class="nav-link active" href="#">
+                <i class="fas fa-store me-1"></i>
+                Cửa hàng
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../admin/view/admin.html">
+                <i class="fas fa-user-shield me-1"></i>
+                Quản trị
+              </a>
             </li>
           </ul>
-          <button
-            class="btn btn-outline-light position-relative"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#cartOffcanvas"
-          >
+          <button class="btn btn-outline-light position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
             <i class="fas fa-shopping-cart"></i>
             Giỏ hàng
-            <span
-              id="cartCount"
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-            >
+            <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               0
             </span>
           </button>
@@ -88,19 +79,14 @@
                 <i class="fas fa-search me-2"></i>
                 Tìm kiếm
               </h5>
-              <input
-                type="text"
-                id="searchInput"
-                class="form-control"
-                placeholder="Nhập tên sản phẩm..."
-              />
+              <input type="text" id="searchInput" class="form-control" placeholder="Nhập tên sản phẩm...">
             </div>
           </div>
         </div>
       </div>
 
       <!-- Loading Spinner -->
-      <div id="loadingSpinner" class="text-center my-5" style="display: none">
+      <div id="loadingSpinner" class="text-center my-5" style="display: none;">
         <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
@@ -108,12 +94,7 @@
       </div>
 
       <!-- Error Message -->
-      <div
-        id="errorMessage"
-        class="alert alert-danger"
-        style="display: none"
-        role="alert"
-      >
+      <div id="errorMessage" class="alert alert-danger" style="display: none;" role="alert">
         <i class="fas fa-exclamation-triangle me-2"></i>
         <span id="errorText"></span>
       </div>
@@ -127,37 +108,28 @@
           </h2>
         </div>
       </div>
-
+      
       <div id="productList" class="row">
         <!-- Products will be rendered here -->
       </div>
     </div>
 
     <!-- Cart Offcanvas -->
-    <div
-      class="offcanvas offcanvas-end"
-      tabindex="-1"
-      id="cartOffcanvas"
-      aria-labelledby="cartOffcanvasLabel"
-    >
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
       <div class="offcanvas-header bg-dark text-white">
         <h5 class="offcanvas-title" id="cartOffcanvasLabel">
           <i class="fas fa-shopping-cart me-2"></i>
           Giỏ hàng của bạn
         </h5>
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="offcanvas"
-        ></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
       </div>
       <div class="offcanvas-body">
         <div id="cartItems">
           <!-- Cart items will be rendered here -->
         </div>
-
-        <div id="cartTotal" class="mt-4" style="display: none">
-          <hr />
+        
+        <div id="cartTotal" class="mt-4" style="display: none;">
+          <hr>
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="mb-0">Tổng cộng:</h5>
             <h5 class="mb-0 text-primary" id="totalPrice">0đ</h5>
@@ -173,7 +145,7 @@
             </button>
           </div>
         </div>
-
+        
         <div id="emptyCart" class="text-center mt-5">
           <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
           <h5 class="text-muted">Giỏ hàng trống</h5>
@@ -184,24 +156,14 @@
 
     <!-- Toast Container for Notifications -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
-      <div
-        id="liveToast"
-        class="toast"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-      >
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
           <i class="fas fa-info-circle text-primary me-2"></i>
           <strong class="me-auto">Thông báo</strong>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="toast"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
         </div>
         <div class="toast-body" id="toastMessage">
-          
+          <!-- Toast message will be here -->
         </div>
       </div>
     </div>
@@ -210,11 +172,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    
     <!-- JavaScript Files -->
-    <script src="./customer/model/Product.js"></script>
-    <script src="./customer/model/CartItem.js"></script>
-    <script src="./customer/services/ProductService.js"></script>
-    <script src="./customer/controller/CustomerController.js"></script>
+    <script src="../model/Product.js"></script>
+    <script src="../model/CartItem.js"></script>
+    <script src="../services/ProductService.js"></script>
+    <script src="../controller/CustomerController.js"></script>
   </body>
 </html>

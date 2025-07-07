@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cửa hàng điện thoại - Trang chủ</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      .main-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .page-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 3rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        margin: 1rem;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+      }
+      
+      .page-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      }
+      
+      .page-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        transition: all 0.3s ease;
+      }
+      
+      .admin-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      .store-icon {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+      
+      .page-card:hover .page-icon {
+        transform: scale(1.1);
+      }
+      
+      .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+      
+      .page-description {
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      
+      .main-title {
+        text-align: center;
+        color: white;
+        margin-bottom: 3rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      
+      .main-title h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      
+      .main-title p {
+        font-size: 1.3rem;
+        opacity: 0.9;
+      }
+      
+      @media (max-width: 768px) {
+        .page-card {
+          padding: 2rem;
+          margin: 0.5rem;
+        }
+        
+        .main-title h1 {
+          font-size: 2.5rem;
+        }
+        
+        .page-icon {
+          width: 100px;
+          height: 100px;
+          font-size: 2.5rem;
+        }
+        
+        .page-title {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="container">
+        <div class="main-title">
+          <h1><i class="fas fa-mobile-alt me-3"></i>PhoneStore</h1>
+          <p>Hệ thống quản lý cửa hàng điện thoại</p>
+        </div>
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-md-6">
+            <div class="page-card" onclick="location.href='./admin/view/admin.html'">
+              <div class="page-icon admin-icon">
+                <i class="fas fa-user-shield"></i>
+              </div>
+              <h2 class="page-title">Admin Page</h2>
+              <p class="page-description">
+                Quản lý sản phẩm, thêm, sửa, xóa và tìm kiếm sản phẩm
+              </p>
+              <div class="mt-auto">
+                <button class="btn btn-primary btn-lg">
+                  <i class="fas fa-arrow-right me-2"></i>
+                  Truy cập
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-5 col-md-6">
+            <div class="page-card" onclick="location.href='./customer/view/store.html'">
+              <div class="page-icon store-icon">
+                <i class="fas fa-store"></i>
+              </div>
+              <h2 class="page-title">Store Page</h2>
+              <p class="page-description">
+                Xem sản phẩm, thêm vào giỏ hàng và mua sắm trực tuyến
+              </p>
+              <div class="mt-auto">
+                <button class="btn btn-success btn-lg">
+                  <i class="fas fa-shopping-cart me-2"></i>
+                  Mua sắm
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <p class="text-white-50">
+            <i class="fas fa-copyright me-1"></i>
+            2025 PhoneStore. Bài tập Capstone JavaScript.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+      // Add click effect
+      document.querySelectorAll('.page-card').forEach(card => {
+        card.addEventListener('click', function() {
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 150);
+        });
+      });
+    </script>
+  </body>
+</html>
