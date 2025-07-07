@@ -6,7 +6,8 @@
 ======================================== */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   line-height: 1.6;
   background-color: #f3f4f6;
   min-height: 100vh;
@@ -23,7 +24,8 @@ body {
 }
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
   border-color: #d1d5db;
 }
 .product-card .card-body {
@@ -70,7 +72,8 @@ body {
   min-width: 420px;
   background: white;
   border-left: 1px solid #e5e7eb;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 768px) {
   .offcanvas {
@@ -98,7 +101,8 @@ body {
   transition: all 0.2s ease-in-out;
 }
 .cart-item:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
   border-color: #d1d5db;
 }
 
@@ -110,12 +114,14 @@ body {
   margin-bottom: 2rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
-.filter-section .form-control, .filter-section .form-select {
+.filter-section .form-control,
+.filter-section .form-select {
   border: 1px solid #d1d5db;
   border-radius: 8px;
   padding: 0.75rem;
 }
-.filter-section .form-control:focus, .filter-section .form-select:focus {
+.filter-section .form-control:focus,
+.filter-section .form-select:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
 }
@@ -134,7 +140,8 @@ body {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 .toast-header.bg-success {
@@ -197,7 +204,11 @@ body {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -229,7 +240,8 @@ body {
 .btn-primary:hover {
   background-color: #1d4ed8;
   transform: translateY(-1px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
   color: white;
 }
 
@@ -240,7 +252,8 @@ body {
 .btn-success:hover {
   background-color: #047857;
   transform: translateY(-1px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
   color: white;
 }
 
@@ -279,7 +292,8 @@ body {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 3rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 #loadingSpinner .spinner-border {
   width: 3rem;
@@ -291,7 +305,8 @@ body {
 .modal .modal-content {
   border: none;
   border-radius: 8px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 .modal .modal-header {
@@ -332,7 +347,8 @@ body {
   .card-body {
     padding: 1rem 0.75rem;
   }
-  .admin-container, .store-container {
+  .admin-container,
+  .store-container {
     padding: 1rem;
     margin: 0.5rem 0;
   }
@@ -351,4 +367,4 @@ body {
   .toast {
     min-width: 280px;
   }
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */

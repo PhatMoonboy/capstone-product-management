@@ -270,20 +270,51 @@ class CustomerController {
       return;
     }
 
+    // Render cart items
     cartElement.innerHTML = this.cart
       .map((item) => item.renderCartItem())
       .join("");
 
-    // Tính tổng tiền
-    const total = this.cart.reduce(
-      (sum, item) => sum + item.getTotalPrice(),
-      0
-    );
+    // Tính toán chi tiết
+    const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = this.cart.reduce((sum, item) => sum + item.getTotalPrice(), 0);
+    const avgPrice = totalPrice / totalItems;
+
+    // Cập nhật tổng tiền
     if (totalElement) {
-      totalElement.textContent = new Intl.NumberFormat("vi-VN", {
-        style: "currency",
-        currency: "VND",
-      }).format(total);
+      totalElement.innerHTML = `
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span class="summary-label">
+              <i class="fas fa-shopping-bag me-2"></i>
+              Số lượng sản phẩm:
+            </span>
+            <span class="summary-value">${totalItems} sản phẩm</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">
+              <i class="fas fa-calculator me-2"></i>
+              Giá trung bình:
+            </span>
+            <span class="summary-value">${new Intl.NumberFormat("vi-VN", {
+              style: "currency",
+              currency: "VND",
+            }).format(avgPrice)}</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">
+              <i class="fas fa-money-bill-wave me-2"></i>
+              <strong>Tổng cộng:</strong>
+            </span>
+            <span class="summary-value text-primary">
+              <strong>${new Intl.NumberFormat("vi-VN", {
+                style: "currency",
+                currency: "VND",
+              }).format(totalPrice)}</strong>
+            </span>
+          </div>
+        </div>
+      `;
     }
 
     if (cartTotalSection) cartTotalSection.style.display = "block";

@@ -30,46 +30,83 @@ class CartItem {
     }).format(this.getTotalPrice());
   }
 
-  // Render HTML cho cart item
+  // Render HTML cho cart item 
   renderCartItem() {
     return `
-      <div class="card mb-3 cart-item" data-id="${this.id}">
-        <div class="card-body">
-          <div class="row align-items-center">
-            <div class="col-3">
-              <img src="${this.img}" alt="${
-      this.name
-    }" class="img-fluid rounded" style="max-height: 60px; object-fit: cover;">
+      <div class="cart-item-card mb-3" data-id="${this.id}">
+        <div class="row g-0 align-items-center">
+          <!-- Product Image -->
+          <div class="col-md-3">
+            <div class="cart-item-image">
+              <img src="${this.img}" alt="${this.name}" class="img-fluid">
+              <div class="product-badge">${this.type.toUpperCase()}</div>
             </div>
-            <div class="col-9">
-              <h6 class="card-title mb-1">${this.name}</h6>
-              <p class="card-text text-muted mb-2">${this.formatPrice()}</p>
+          </div>
+          
+          <!-- Product Info -->
+          <div class="col-md-6">
+            <div class="cart-item-info">
+              <h6 class="product-name">${this.name}</h6>
               
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group" role="group">
-                  <button class="btn btn-outline-secondary btn-sm" onclick="decreaseQuantity('${
-                    this.id
-                  }')">
+              <!-- Product Description -->
+              <div class="product-description mb-2">
+                <small class="text-muted">${this.desc}</small>
+              </div>
+              
+              <!-- Product Specifications -->
+              <div class="product-specs">
+                <div class="spec-item">
+                  <i class="fas fa-tv text-primary"></i>
+                  <span>Màn hình: ${this.screen}</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fas fa-camera text-success"></i>
+                  <span>Camera sau: ${this.backCamera}</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fas fa-camera-retro text-info"></i>
+                  <span>Camera trước: ${this.frontCamera}</span>
+                </div>
+              </div>
+              
+              <!-- Price Info -->
+              <div class="price-info mt-2">
+                <span class="unit-price">Đơn giá: ${this.formatPrice()}</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Quantity & Actions -->
+          <div class="col-md-3">
+            <div class="cart-item-actions">
+              <!-- Quantity Controls -->
+              <div class="quantity-controls mb-3">
+                <label class="form-label small text-muted">Số lượng:</label>
+                <div class="input-group input-group-sm">
+                  <button class="btn btn-outline-secondary" type="button" onclick="decreaseQuantity('${this.id}')">
                     <i class="fas fa-minus"></i>
                   </button>
-                  <span class="btn btn-outline-secondary btn-sm disabled">${
-                    this.quantity
-                  }</span>
-                  <button class="btn btn-outline-secondary btn-sm" onclick="increaseQuantity('${
-                    this.id
-                  }')">
+                  <input type="text" class="form-control text-center fw-bold" value="${this.quantity}" readonly>
+                  <button class="btn btn-outline-secondary" type="button" onclick="increaseQuantity('${this.id}')">
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>
-                
-                <div class="d-flex align-items-center">
-                  <strong class="text-primary me-2">${this.formatTotalPrice()}</strong>
-                  <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart('${
-                    this.id
-                  }')">
-                    <i class="fas fa-trash"></i>
-                  </button>
+              </div>
+              
+              <!-- Total Price -->
+              <div class="total-price mb-3">
+                <div class="text-center">
+                  <small class="text-muted d-block">Thành tiền:</small>
+                  <h6 class="text-primary fw-bold mb-0">${this.formatTotalPrice()}</h6>
                 </div>
+              </div>
+              
+              <!-- Remove Button -->
+              <div class="text-center">
+                <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart('${this.id}')" title="Xóa sản phẩm">
+                  <i class="fas fa-trash me-1"></i>
+                  Xóa
+                </button>
               </div>
             </div>
           </div>
