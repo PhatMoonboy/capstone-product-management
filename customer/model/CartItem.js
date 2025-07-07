@@ -4,6 +4,11 @@ class CartItem {
     this.name = product.name;
     this.price = product.price;
     this.img = product.img;
+    this.screen = product.screen;
+    this.backCamera = product.backCamera;
+    this.frontCamera = product.frontCamera;
+    this.desc = product.desc;
+    this.type = product.type;
     this.quantity = quantity;
   }
 
