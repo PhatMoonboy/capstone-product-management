@@ -77,13 +77,22 @@ body {
     font-size: 0.9rem;
     margin-bottom: 1rem;
   }
+  
+  .position-relative {
+    background: $gray-100;
+    border-radius: $border-radius $border-radius 0 0;
+    overflow: hidden;
+  }
 }
 
 .product-image {
   width: 100%;
-  height: 320px; // Tăng từ 280px lên 320px
-  object-fit: cover;
+  height: 350px; // Tăng từ 320px lên 350px
+  object-fit: contain; // Thay đổi từ cover sang contain để hiển thị đầy đủ
+  object-position: center;
   transition: $transition;
+  background-color: #f8f9fa; // Thêm background màu nhẹ
+  padding: 10px; // Thêm padding để ảnh không bị sát viền
   
   &:hover {
     transform: scale(1.02);
@@ -353,6 +362,50 @@ body {
     height: 3rem;
     border-width: 3px;
     color: $primary-color;
+  }
+}
+
+// Enhanced Modal Styling
+.modal {
+  .modal-content {
+    border: none;
+    border-radius: $border-radius;
+    box-shadow: $shadow-lg;
+    overflow: hidden;
+  }
+  
+  .modal-header {
+    background: $primary-color;
+    color: white;
+    border-bottom: none;
+    
+    .modal-title {
+      font-weight: 600;
+    }
+    
+    .btn-close {
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  
+  .modal-body {
+    padding: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid $gray-200;
+    padding: 1rem 2rem;
+    
+    .btn {
+      min-width: 100px;
+    }
   }
 }
 
