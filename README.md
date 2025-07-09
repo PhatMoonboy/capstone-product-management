@@ -13,6 +13,10 @@
 
 [📁 Google Sheet - Phân chia task công việc](https://docs.google.com/spreadsheets/d/1qoihfKBHaT6WafiyfVob-kDE_sOWOIE52uS7jGKqLaw/edit?gid=0#gid=0)
 
+## 🌐 Link Triển Khai (Deploy)
+
+👉 [Truy cập Website tại đây](https://capstone-product-management.vercel.app/home.html)
+
 ## 🚀 Công Nghệ Sử Dụng
 
 - HTML5, SASS/CSS
