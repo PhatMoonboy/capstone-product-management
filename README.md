@@ -1,8 +1,22 @@
-Project Capstone JS
+# 🧑‍💻 Project Capstone - JavaScript
 
-#Thành viên : 
-Hoàng Long Anh 
-Dương Thành Phát 
+## 👥 Thành viên nhóm
 
-Link demo dự án : https://www.youtube.com/watch?v=szY4A718jEM
-Link excel phân chia task : https://docs.google.com/spreadsheets/d/1qoihfKBHaT6WafiyfVob-kDE_sOWOIE52uS7jGKqLaw/edit?gid=0#gid=0
+- **Hoàng Long Anh**
+- **Dương Thành Phát**
+
+## 📽️ Link Demo Dự Án
+
+[🔗 Xem video demo trên YouTube](https://www.youtube.com/watch?v=szY4A718jEM)
+
+## 📊 Link Excel Phân Chia Công Việc
+
+[📁 Google Sheet - Phân chia task công việc](https://docs.google.com/spreadsheets/d/1qoihfKBHaT6WafiyfVob-kDE_sOWOIE52uS7jGKqLaw/edit?gid=0#gid=0)
+
+## 🚀 Công Nghệ Sử Dụng
+
+- HTML5, SASS/CSS
+- JavaScript (ES6+)
+- Git & GitHub
+- Boostrap 5
+
