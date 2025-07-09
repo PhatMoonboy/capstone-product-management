@@ -1,7 +1,7 @@
 // Service để call API lấy dữ liệu sản phẩm sử dụng Axios
 class ProductService {
   constructor() {
-    this.baseUrl = "https://68653afd5b5d8d0339805a6f.mockapi.io/Products";
+    this.baseUrl = "https://6864c98c5b5d8d03397e47c1.mockapi.io/products";
   }
 
   async getAllProducts() {
