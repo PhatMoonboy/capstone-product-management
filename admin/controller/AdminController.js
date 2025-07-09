@@ -4,7 +4,7 @@ class AdminController {
     this.modalAdd = null;
     this.modalEdit = null;
     this.currentEditingId = null;
-    this.products = []; // lưu danh sách sản phẩm
+    this.products = [];
 
     // Tạo element loading overlay
     this.loadingEl = document.createElement("div");
@@ -136,7 +136,10 @@ class AdminController {
         document.getElementById("editFrontCamera").value = p.frontCamera;
         document.getElementById("editImg").value = p.img;
         document.getElementById("editDesc").value = p.desc;
-        document.getElementById("editType").value = p.type;
+        // Đảm bảo chọn đúng option bất kể hoa thường
+        document.getElementById("editType").value = (
+          p.type || ""
+        ).toLowerCase();
         document.getElementById("editModalTitle").innerText =
           "Cập nhật sản phẩm";
         this.modalEdit = new bootstrap.Modal(
