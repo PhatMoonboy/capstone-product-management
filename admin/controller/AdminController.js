@@ -5,6 +5,31 @@ class AdminController {
     this.modalEdit = null;
     this.currentEditingId = null;
     this.products = []; // lưu danh sách sản phẩm
+
+    // Tạo element loading overlay
+    this.loadingEl = document.createElement("div");
+    this.loadingEl.id = "loadingOverlay";
+    this.loadingEl.style.position = "fixed";
+    this.loadingEl.style.top = "0";
+    this.loadingEl.style.left = "0";
+    this.loadingEl.style.width = "100%";
+    this.loadingEl.style.height = "100%";
+    this.loadingEl.style.backgroundColor = "rgba(0,0,0,0.3)";
+    this.loadingEl.style.display = "flex";
+    this.loadingEl.style.alignItems = "center";
+    this.loadingEl.style.justifyContent = "center";
+    this.loadingEl.style.zIndex = "1050";
+    this.loadingEl.classList.add("d-none");
+    this.loadingEl.innerHTML = `<div class="spinner-border text-light" role="status"><span class="visually-hidden">Loading...</span></div>`;
+    document.body.appendChild(this.loadingEl);
+  }
+
+  showLoading() {
+    this.loadingEl.classList.remove("d-none");
+  }
+
+  hideLoading() {
+    this.loadingEl.classList.add("d-none");
   }
 
   initDashboard() {
@@ -17,13 +42,15 @@ class AdminController {
   }
 
   fetchProducts() {
+    this.showLoading();
     axios
       .get(this.baseUrl)
       .then((res) => {
         this.products = res.data;
         this.renderProducts(this.products);
       })
-      .catch((err) => console.error("Lỗi khi lấy danh sách sản phẩm:", err));
+      .catch((err) => console.error("Lỗi khi lấy danh sách sản phẩm:", err))
+      .finally(() => this.hideLoading());
   }
 
   renderProducts(products) {
@@ -69,13 +96,15 @@ class AdminController {
       cancelButtonText: "Hủy",
     }).then((result) => {
       if (result.isConfirmed) {
+        this.showLoading();
         axios
           .delete(`${this.baseUrl}/${id}`)
           .then(() => {
             Swal.fire("Đã xóa!", "Sản phẩm đã được xóa.", "success");
             this.fetchProducts();
           })
-          .catch(() => Swal.fire("Lỗi!", "Không thể xóa sản phẩm.", "error"));
+          .catch(() => Swal.fire("Lỗi!", "Không thể xóa sản phẩm.", "error"))
+          .finally(() => this.hideLoading());
       }
     });
   }
@@ -169,6 +198,7 @@ class AdminController {
           );
         }
 
+        this.showLoading();
         axios
           .post(this.baseUrl, product)
           .then(() => {
@@ -176,7 +206,8 @@ class AdminController {
             this.modalAdd.hide();
             Swal.fire("Thành công", "Đã thêm sản phẩm", "success");
           })
-          .catch((err) => Swal.fire("Lỗi", "Không thể thêm sản phẩm", "error"));
+          .catch((err) => Swal.fire("Lỗi", "Không thể thêm sản phẩm", "error"))
+          .finally(() => this.hideLoading());
       });
   }
 
@@ -215,6 +246,7 @@ class AdminController {
           );
         }
 
+        this.showLoading();
         axios
           .put(`${this.baseUrl}/${id}`, product)
           .then(() => {
@@ -224,7 +256,8 @@ class AdminController {
           })
           .catch((err) =>
             Swal.fire("Lỗi", "Không thể cập nhật sản phẩm", "error")
-          );
+          )
+          .finally(() => this.hideLoading());
       });
   }
 
